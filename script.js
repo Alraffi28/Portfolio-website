@@ -1,7 +1,6 @@
-// script.js — robust, rewritten
 
 document.addEventListener('DOMContentLoaded', () => {
-  // --- elements ---
+
   const header = document.querySelector('header');
   const headerHeight = () => (header ? header.getBoundingClientRect().height : 0);
 
@@ -14,13 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileNav = document.getElementById('navlinks');
   const showAboutBtn = document.getElementById('showAbout');
 
-  // --- Utility: set active link ---
   function setActiveLink(el) {
     links.forEach(x => x.classList.remove('active'));
     if (el) el.classList.add('active');
   }
 
-  // --- Smooth scroll to element, accounting for fixed header ---
   function smoothScrollTo(el) {
     if (!el) return;
     const rect = el.getBoundingClientRect();
@@ -29,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: Math.round(targetY), behavior: 'smooth'});
   }
 
-  // --- Click handlers for nav links (smooth + close mobile menu) ---
   links.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -38,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
       smoothScrollTo(target);
       setActiveLink(link);
 
-      // close mobile menu if open
       if (menuBtn && mobileNav && mobileNav.classList.contains('open')) {
         menuBtn.classList.remove('active');
         mobileNav.classList.remove('open');
@@ -46,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // keyboard: allow Enter to activate when focused
     link.addEventListener('keydown', (ev) => {
       if (ev.key === 'Enter' || ev.key === ' ') {
         ev.preventDefault();
@@ -55,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Mobile menu toggle ---
   if (menuBtn && mobileNav) {
     menuBtn.addEventListener('click', () => {
       const expanded = menuBtn.classList.toggle('active');
@@ -63,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
       menuBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     });
 
-    // Close mobile menu when clicking outside it
     document.addEventListener('click', (e) => {
       if (!mobileNav.classList.contains('open')) return;
       const isInside = mobileNav.contains(e.target) || menuBtn.contains(e.target);
@@ -75,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Show About shortcut button ---
   if (showAboutBtn) {
     showAboutBtn.addEventListener('click', () => {
       const aboutEl = document.getElementById('about');
@@ -83,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Active-on-scroll: robust approach (closest section to header) ---
   function updateActiveOnScroll() {
     const offset = headerHeight() + 12;
     let closest = null;
@@ -91,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sections.forEach(sec => {
       const rect = sec.getBoundingClientRect();
-      // distance of section top to header area
       const dist = Math.abs(rect.top - offset);
       if (dist < closestDist) {
         closestDist = dist;
@@ -105,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Debounce helper
   function debounce(fn, wait = 60) {
     let t = null;
     return function(...args) {
@@ -117,18 +105,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const debouncedUpdate = debounce(updateActiveOnScroll, 80);
   window.addEventListener('scroll', debouncedUpdate, { passive: true });
   window.addEventListener('resize', debounce(() => {
-    // recalc on resize
     updateActiveOnScroll();
   }, 120));
 
-  // run once on load (small delay to allow fonts/layout)
   window.addEventListener('load', () => {
     setTimeout(updateActiveOnScroll, 120);
   });
-  // also run immediately in case DOM ready after defer
   updateActiveOnScroll();
 
-  // --- Typewriter / role animation (kept from original) ---
   (function typewriter() {
     const roleEl = document.getElementById('role');
     if (!roleEl) return;
@@ -148,7 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
     step();
   })();
 
-  // --- Small reveal animation on load (kept) ---
   window.addEventListener('load', () => {
     document.querySelectorAll('section').forEach((sec, i) => {
       sec.style.opacity = 0;
@@ -161,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Contact form validation ---
   (function contactForm() {
     const form = document.getElementById('contactForm');
     const success = document.getElementById('successMsg');
@@ -176,7 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (email && !/^\S+@\S+\.\S+$/.test(email.value)) { alert('Please enter a valid email'); email.focus(); return; }
       if (message && message.value.trim().length < 6) { alert('Please add a slightly longer message'); message.focus(); return; }
 
-      // show success, clear form with simple animation
       if (success) {
         success.style.display = 'block';
         success.style.opacity = 0; success.style.transition = 'opacity 250ms';
@@ -190,10 +171,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   })();
 
-  // --- small accessibility: current year ---
   const y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 
-  // ensure nav links are keyboard focusable
   document.querySelectorAll('.nav-link').forEach(a => a.setAttribute('tabindex','0'));
 });
