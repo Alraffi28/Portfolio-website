@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mohammed Alraffi J — Portfolio</title>
+  <!-- Link external CSS (create style.css) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header>
+    <div class="nav">
+      <div class="logo">My Portfolio</div>
+
+      <nav aria-label="Main navigation">
+        <div class="navlinks" id="navlinks" role="menubar">
+          <a role="menuitem" href="#home" class="nav-link active">Home</a>
+          <a role="menuitem" href="#about" class="nav-link">About</a>
+          <a role="menuitem" href="#projects" class="nav-link">Projects</a>
+          <a role="menuitem" href="#contact" class="nav-link">Contact</a>
+        </div>
+
+        <!-- Hamburger button (for mobile) -->
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navlinks" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="content-wrap wrap">
+    <!-- HOME -->
+    <section id="home" class="hero" aria-label="home section">
+      <div class="intro">
+        <h1>Hello, it's Me</h1>
+        <h2>Mohammed Alraffi J</h2>
+        <h3 style="margin-top:6px;font-weight:700">I'm a <span id="role">Full stack developer</span></h3>
+        <p class="lead">I build responsive, accessible and user-friendly web applications. I love converting designs into clean, functional interfaces and bringing ideas to life with JavaScript.</p>
+
+        <div class="actions">
+          <button class="btn secondary" id="showAbout">About Me</button>
+        </div>
+      </div>
+
+      <div class="profile-wrap">
+        <div class="hex">
+          <img src="photo _page-0001 (1).jpg" alt="Mohammed Alraffi J">
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about" aria-label="about section">
+      <div class="profile-wrap">
+        <div class="hex1">
+          <img src="photo _page-0001 (1).jpg" alt="Mohammed Alraffi J">
+        </div>
+      </div>
+
+      <div>
+        <h2>About <span style="color:var(--primary)">Me</span></h2>
+        <div class="subtitle">Full stack Developer!</div>
+        <p>
+          <strong>Education:</strong><br>
+          B.Sc Computer Science, Ultra Arts and Science College (2022 – 2025)<br><br>
+          <strong>Technical Skills:</strong><br>
+          C Programming, HTML, CSS, JavaScript, Bootstrap, React.js, Node.js, MongoDB, UI/UX Designing<br><br>
+          <strong>Certifications:</strong><br>
+          Mern Full Stack Development, <br>
+          UI &amp; UX Design – KGiSL MicroCollege (2025 Present)
+        </p>
+
+        <div style="margin-top:18px">
+          <button class="btn secondary" id="readMore">Read More</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" aria-label="projects">
+      <h2 style="text-align:center;font-size:38px;margin-bottom:18px">My <span style="color:var(--primary)">Projects</span></h2>
+      <div class="services-grid">
+        <article class="card">
+          <h3>AgriDiary UI/UX Designing</h3><br>
+          <p>Designed a farm management system that streamlines agricultural record-keeping and delivers data-driven recommendations. (2025 August)</p><br>
+          <button class="btn secondary" id="showAbout"><a href="https://www.behance.net/mohammej1" style="text-decoration: none; color:var(--primary);">See more</a></button>
+        </article>
+
+        <article class="card">
+          <h3>ToyZone – E-Commerce Website</h3>
+          <p>Built a responsive toy shopping website with cart system, smooth UI, and single-page navigation using HTML, CSS, and JavaScript. (2025 October)</p><br>
+          <button class="btn secondary" id="showAbout"><a href="https://earnest-rugelach-5eb586.netlify.app/" style="text-decoration: none; color:var(--primary);">See more</a></button>
+        </article>
+
+        <article class="card">
+          <h3>Weather App</h3><br>
+          <p>Developed a weather forecasting app with API integration, dynamic UI, and real-time updates using HTML, CSS, and JavaScript. (2025 October)</p><br>
+          <button class="btn secondary" id="showAbout"><a href="https://roaring-haupia-a12acd.netlify.app/" style="text-decoration: none; color:var(--primary);">See more</a></button>
+
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-label="contact section" style="padding-top:36px;padding-bottom:36px">
+      <h2 style="text-align:center;font-size:36px;margin-bottom:18px">Contact <span style="color:var(--primary)">Me!</span></h2>
+
+      <div class="contact-form">
+        <form id="contactForm" novalidate>
+          <div class="grid-2">
+            <input type="text" id="name" placeholder="Your name" required minlength="2">
+            <input type="email" id="email" placeholder="Email" required>
+          </div>
+
+          <div class="grid-2" style="margin-top:12px">
+            <input type="tel" id="phone" placeholder="Mobile number">
+            <input type="text" id="subject" placeholder="Subject">
+          </div>
+
+          <div style="margin-top:12px">
+            <textarea id="message" placeholder="Your message" required minlength="6"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn">Send Message</button>
+          </div>
+
+          <div class="msg success" id="successMsg">Message sent — thank you! (This is a front-end demo only.)</div>
+        </form>
+      </div>
+    </section>
+
+    <footer style="margin-top:30px">© <span id="year"></span> Mohammed Alraffi J — All rights reserved <br>
+     E-mail : mohammedalraffi@gmail.com <br>
+     Mobile : +91 6369074290
+    </footer>
+  </main>
+
+  <!-- Link external JS (create script.js). Use defer so DOM ready -->
+  <script src="script.js" defer></script>
+</body>
+</html>
