@@ -57,9 +57,16 @@ header {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
   font-size: 22px;
   font-weight: 700;
-  color: var(--ink);
+  color: var(--primary);
+}
+.logo img{
+  height: 50px;
+  width: 50px;
 }
 
 /* desktop nav */
@@ -147,7 +154,7 @@ header {
 
 /* ---------- SECTIONS ---------- */
 section {
-  padding: 100px 0;
+  padding: 20px 0;
 }
 
 /* ---------- HERO SECTION ---------- */
@@ -155,6 +162,7 @@ section {
   display: grid;
   grid-template-columns: 1fr 420px;
   align-items: center;
+  padding-top: 60px;
   gap: 48px;
 }
 
@@ -184,6 +192,7 @@ section {
   margin-top: 22px;
   display: flex;
   gap: 16px;
+  align-items: center;
 }
 .btn {
   background: var(--primary);
@@ -228,31 +237,17 @@ section {
 }
 
 /* ---------- ABOUT SECTION ---------- */
-.hex1{
-  width: 280px;
-  height: 360px;
-  padding: 20px;
-  border-radius: 28px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(180deg,
-             rgba(11,126,161,0.14),
-             rgba(255,122,89,0.1));
-  border: 8px solid rgba(11,126,161,0.18);
-  box-shadow: 0 16px 40px rgba(11,126,161,0.12);
-}
-.hex1 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 18px;
+.about h2{
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 18px;
 }
 .about {
-  display: grid;
-  grid-template-columns: 420px 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 48px;
   align-items: center;
+  text-align: center;
 }
 .about .subtitle {
   font-size: 20px;
@@ -260,6 +255,7 @@ section {
   margin-bottom: 12px;
 }
 .about p {
+  font-size: 18px;
   color: rgba(11,35,63,0.75);
 }
 
@@ -319,8 +315,8 @@ textarea {
 .form-actions{
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 }
-
 /* success message */
 .msg.success {
   margin-top: 14px;
@@ -348,10 +344,12 @@ footer {
   .hero { grid-template-columns: 1fr; text-align: center; }
   .hex { margin: 0 auto; width: 300px; height: 330px; }
   .hex1 { display: none;}
-  .about { grid-template-columns: 1fr; text-align: center; }
+  .about { text-align: center; }
   .services-grid { grid-template-columns: 1fr; }
+  .grid-2{grid-template-columns: 1fr;}
 }
 @media (max-width: 480px) {
+  .actions{ justify-content: center;}
   .wrap { padding: 18px; }
   .intro h1 { font-size: 28px; }
   .intro h2 { font-size: 20px; }
