@@ -186,6 +186,18 @@ section {
   max-width: 600px;
   color: rgba(11,35,63,0.75);
 }
+.icons{
+  margin-top: 10px;
+  display: flex;
+  gap: 25px;
+}
+.icons a{
+  color: var(--ink);
+  font-size: 24px;
+}
+.icons a:hover{
+  transform: translateY(-2px);
+}
 
 /* HERO buttons */
 .actions {
