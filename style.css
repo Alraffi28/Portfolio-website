@@ -324,9 +324,6 @@ textarea {
   height: 180px;
   resize: vertical;
 }
-#contactForm input:focus , #contactForm textarea:focus{
-  border-color: var(--ink);
-}
 .form-actions{
   display: flex;
   justify-content: center;
